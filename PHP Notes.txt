@@ -1,0 +1,89 @@
+PHP Notes:
+
+variable Declaration
+  $var = 25;
+  $texty = "Hello";
+  global $globalVar = 1;
+  static $staticVar = 1; --> retains value of variable only for it's scope/Created only once
+
+Array Initialization
+  $fruits = array('Mango', 'WaterMelon', 'Toamto');
+  $fruits[2] --> 'Tomato'
+  $multi = array(array('This', 'is', 'a'),
+                 array('2D', 'Array'));
+  $multi[0,3] --> 'a'
+  $elements = array('copier' => 2,
+                    'Inkjet' => 4);
+  $elements['copier'] --> 2
+  $products = array(
+  'paper' => array('copier' => "copier and multi purpose",
+                    'laser' => "Laser printer"),
+  'pen'  => array('ball' => "Ball Point",
+                  'mark' => "Marker"));
+
+Output
+  echo 32; --> 32
+  echo $var; --> 25
+  echo "You have ". $messages . "messages"
+  echo "This is a
+        Multi Line output
+        Between Quotes"
+  echo <<<_End
+        This is another multi
+        Line thingy.
+        _End;
+
+Concat operator
+  $newString .= $var . $texty; --> "25Hello"
+
+Quotes
+  $info = 'Hello $var'; --> "Hello $var"
+  $info = "Hello $var"; --> "Hello 25"
+
+Methods
+  substr(Variable/String, Start-Index, Number of characters);
+  abs(value);
+
+Constants
+  define("ROOT_LOCATION", "c:\pintu\doc"); --> Constant
+  $directory = ROOT_LOCATION;
+  _DIR_ --> Directory of the file
+  _LINE_ --> Current Line number of the file
+  _FILE_ --> Full path of the file
+  _CLASS_ --> Class name
+  _METHOD_ --> Class Method name
+  _FUNCTION_ -->Function name
+  _NAMESPACE_ --> Name of curent NameSpace
+
+SuperGlobal Variables
+  *use htmlentities for security
+  $came_from = htmlentities($_SERVER['HTTP_REFERER']);
+
+for-each loop
+  $paper = array('a','b','c');
+  foreach ($paper as $letters){
+    ...
+  }
+  $elements = array('copier' => 2,
+                    'Inkjet' => 4);
+  foreach ($elements as $item => $number){
+    echo "$item: $number<br>";
+  }
+  alternative :
+  while(list($item, $description) = each($paper)){
+    echo "$item: $description <br>";
+  }
+
+Array Methods
+  count($name); --> Total items in the 1D array
+    count($name, 1); --> Total items in the array
+  sort($name);
+    sort($name, SORT_NUMERIC);
+    sort($name, SORT_STRING);
+  shuffle($name);
+  explode('*Delimiter here*', "Sentence here"); --> String to char
+  extract($_GET); --> extracts all values from get into an array
+    extract($_GET, EXTR_PREFIX_ALL, 'fromget'); --> adds fromget as a prefix for all extracted variables
+  compact('var','texty'); --> Creates 2D array variables
+  reset($var); --> To reset pointer to the start after a foreach loop/ returns first value in Array
+  end($var); --> To reset pointer to the end of an array/ Returns the last value
