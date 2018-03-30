@@ -1,2 +1,2 @@
 # phpNotes
-PHP notes made by me
+PHP syntax notes made by me
